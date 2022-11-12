@@ -19,17 +19,32 @@ def download_video_series(video_links):
         with open(f'/Videos/{filename}', 'wb') as f:
             f.write(r.content)
 
+def download_video(link):
+    filename = link.split("/")[-1]
+    r = requests.get(link)
+    with open(f"b/{filename}", "wb") as f:
+        f.write(r.content)
+
+
+
 if __name__ == "__main__":
 
-	with open('cs.txt', 'r') as f:
-		urls = f.readlines()
 
 
-	for url in urls:    
-		print(f"Downloading series from {url}")
-		video_links = get_video_links(url)
-		print(f"Found {len(video_links)} videos")
+    page = requests.get("https://crazyshit.com/videos/",timeout=5)
 
-		with open('all_video_links.txt', 'a') as f:
-			for link in video_links:
-				f.write(f"{link}\n")
+    soup = BeautifulSoup(page.content, 'html.parser')
+    links = soup.find_all("a", class_="thumb")
+
+    links = [link["href"] for link in links]
+
+    urls = links
+    for url in urls:
+        print(f"Downloading series from {url}")
+        video_links = get_video_links(url)
+        print(f"Found {len(video_links)} videos")
+
+        for link in video_links:
+            print(link)
+            # replace speed=1.3 with speed=6.0 to download faster
+            download_video(link)
