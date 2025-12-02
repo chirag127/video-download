@@ -1,91 +1,41 @@
-# --- Python --- #
-# Byte-compiled / optimized / C extensions
-__pycache__/
-*.py[cod]
-*$py.class
+# ByteStream OS Ignored Files & Directories
 
-# C extensions
+# Dependency Management (uv/pip)
+__pypackages__/
+*.egg-info/
+.venv/
+/dist/
+/build/
+*.py[cod]
 *.so
 
-# Distribution / packaging
-.Python
-build/
-dist/
-downloads/
-eggs/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-.pytest_cache/
-.hypothesis/
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# --- Project Specific --- #
-# Downloaded course content and logs
-udemy_courses/
-*.log
-credentials.json
-cookies.json
-
-# --- IDEs / Editors --- #
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-# JetBrains
-.idea/
-
-# Sublime Text
-*.sublime-project
-*.sublime-workspace
-
-# --- OS Specific --- #
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# --- Other --- #
-# Sphinx documentation
-docs/_build/
-
-# MyPy
+# Python Cache & Logs
+*.pyc
+__pycache__/
 .mypy_cache/
-.dmypy.json
-dmypy.json
+.ruff_cache/
+.pytest_cache/
+.coverage
+
+# IDE & Editor Artifacts
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing & Artifacts
+/htmlcov/
+.jenkins/
+
+# Secrets & Configuration (NEVER COMMIT)
+*.env
+secrets.yml
+config.local.json
+
+# Documentation & Build Artifacts
+/docs/_build/
+
+# Platform Specific (MacOS/Linux/Windows)
+.Trash
+Thumbs.db
