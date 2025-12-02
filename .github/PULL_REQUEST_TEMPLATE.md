@@ -1,92 +1,60 @@
---- 
-name: Pull Request
-about: Submit changes to the CourseVault-Python-Udemy-Offline-Course-Downloader-CLI project.
-title: "[TYPE]: Short, descriptive title (e.g., [FEAT]: Implement course resume functionality)"
-labels: ''
-assignees: ''
----
+# Pull Request Template
 
-## 🚀 Pull Request Checklist: The Apex Review Protocol
+## Pull Request Checklist
 
-Before submitting your pull request, please ensure you have completed the following steps. This template guides you through our "Zero-Defect, High-Velocity" standard.
+This PR is intended to address the following:
 
-### 🎯 Purpose & Impact
+*   [ ] **New Feature:** (Describe the new feature implemented)
+*   [ ] **Bug Fix:** (Describe the bug fixed)
+*   [ ] **Refactor/Code Improvement:** (Describe the improvement)
+*   [ ] **Documentation Update:** (Describe the documentation changes)
+*   [ ] **Testing Enhancement:** (Describe the testing changes)
 
-*   **What problem does this PR solve?** (Provide a clear, concise summary of the issue addressed.)
-*   **What new functionality or improvement does this PR introduce?**
-*   **How does this change align with the project's overall goals?** (e.g., improved stability, new core feature, better user experience).
+## Description
 
-### 📖 Changes Made
+Provide a concise summary of the changes introduced in this pull request. Explain the purpose and scope of the modifications.
 
-*   List the main changes introduced in this PR.
-    *   [ ] Added/Modified/Deleted: `path/to/file.py` - brief description
-    *   [ ] Added/Modified/Deleted: `path/to/another_file.py` - brief description
+## Related Issues
 
-### 🔗 Related Issues & Documentation
+Closes #
 
-*   **Closes:** #ISSUE_NUMBER (if applicable)
-*   **References:** #ISSUE_NUMBER (if applicable)
-*   **Is there any associated documentation (internal or external) that needs updating?**
-    *   [ ] Yes (Link to documentation changes/PR)
-    *   [ ] No
+## Changes Made
 
-### ✅ Testing & Verification
+*   **Technical Stack:** This PR adheres to the Python 3.10+ stack, utilizing `uv` for package management, `Ruff` for linting/formatting, and `Pytest` for testing.
+*   **Architecture:** Changes align with the Modular Monolith pattern.
+*   **AI Integration:** Modifications related to AI processing or integrations (if applicable) are detailed here.
+*   **CLI Enhancements:** Any changes to the command-line interface functionality or usability are described.
 
-*   **Have you tested these changes thoroughly?** Describe the testing approach.
-    *   [ ] **Unit Tests (`pytest`):** New tests added or existing tests updated to cover changes.
-        *   Have all `pytest` tests passed locally?
-        *   Command run: `uv run pytest`
-    *   [ ] **Integration Tests:** (Describe any integration tests conducted, e.g., end-to-end download flow).
-    *   [ ] **Manual/Functional Tests:** (Describe specific manual steps taken to verify the feature).
-        *   Steps to reproduce/verify manually:
-            1. Step 1
-            2. Step 2
-*   **Test Environment:**
-    *   Python Version: `x.y.z`
-    *   OS: `Linux/macOS/Windows`
+## How to Test
 
-### 🏗️ Architectural & Code Quality Standards
+Provide clear, step-by-step instructions on how to test the changes introduced in this PR. Include any necessary setup, commands, or expected outputs.
 
-*   **Adherence to "Modular Monolith" Principles:**
-    *   [ ] Are concerns clearly separated within modules?
-    *   [ ] Are dependencies managed appropriately (e.g., no forbidden cross-module imports)?
-*   **Code Style & Linting (`ruff`):**
-    *   [ ] Have you run `uv run ruff check --fix .` and `uv run ruff format .`?
-    *   [ ] Are there any new linting warnings or errors introduced?
-*   **Readability & Maintainability:**
-    *   [ ] Is the code clear, concise, and well-commented where necessary?
-    *   [ ] Are variable and function names descriptive?
-    *   [ ] Are complex algorithms explained?
-*   **Performance & Efficiency:**
-    *   [ ] Are there any known performance implications? (If yes, describe them.)
-    *   [ ] Have you considered potential resource usage (memory, CPU, network)?
-*   **Error Handling & Robustness:**
-    *   [ ] Does the code gracefully handle expected errors and edge cases?
-    *   [ ] Are appropriate exceptions raised and caught?
-*   **Security Considerations:**
-    *   [ ] Have potential security vulnerabilities been considered and mitigated?
-    *   [ ] Are sensitive data or credentials handled securely (e.g., environment variables, not hardcoded)?
-    *   Refer to our [Security Policy](https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI/blob/main/.github/SECURITY.md).
+## Architectural Adherence
 
-### 📦 Dependencies
+*   **SOLID Principles:** Ensure all changes adhere to SOLID principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion).
+*   **DRY Principle:** All new code must follow the Don't Repeat Yourself principle.
+*   **YAGNI Principle:** Avoid implementing functionality that is not currently required.
 
-*   **New Dependencies:**
-    *   [ ] Have any new dependencies been added to `pyproject.toml`? If so, why?
-    *   [ ] Are these dependencies well-maintained and from reputable sources?
-*   **Updated Dependencies:**
-    *   [ ] Have existing dependencies been updated? If so, why (e.g., security, new features)?
+## Verification Steps
 
-### 📝 Reviewer Checklist (For the Reviewer)
+Execute the following commands to verify the integrity and functionality of the changes:
 
-*   [ ] Code functionality verified.
-*   [ ] Adheres to architectural patterns and design principles (Modular Monolith, SOLID/DRY where applicable).
-*   [ ] Code quality and style standards met (Ruff output clean).
-*   [ ] Tests are sufficient and pass.
-*   [ ] Documentation (if any) is updated.
-*   [ ] No new security vulnerabilities introduced.
-*   [ ] Performance implications considered.
+1.  **Setup Dependencies:**
+    bash
+    uv pip sync
+    
+2.  **Run Linters & Formatters:**
+    bash
+    ruff check .
+    ruff format .
+    
+3.  **Run Unit & Integration Tests:**
+    bash
+    pytest
+    
+4.  **Verify Build (if applicable):**
+    *(Add commands for building the project if a build step is involved, e.g., for packaging)*
 
----
+## Additional Notes
 
-### 💡 Additional Notes for Reviewers
-(Any specific areas to pay attention to, or complex logic that might need extra scrutiny.)
+Include any other relevant information, such as potential side effects, known issues, or deployment considerations.
