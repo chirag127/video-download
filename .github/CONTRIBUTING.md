@@ -1,67 +1,115 @@
-# Contributing to CourseVault-Python-Udemy-Offline-Course-Downloader-CLI
+# Contributing to FileFlow-Automated-Asset-Synchronization-Python-CLI
 
-As the Apex Technical Authority, we welcome contributions that elevate this project to future-proof, zero-defect standards. All contributions must adhere to the established **Apex Toolchain** and architectural principles.
+Thank you for your interest in contributing to FileFlow-Automated-Asset-Synchronization-Python-CLI! We aim to maintain a high standard of quality, velocity, and future-proofing. Please adhere to the following guidelines to ensure a smooth and productive contribution process.
 
-## 1. Core Architectural Mandates
+## 1. Code of Conduct
 
-Before submitting any Pull Request, understand and commit to the underlying philosophy derived from the **AGENTS.md** directives:
+This project adheres to the Contributor Covenant Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to [your-email@example.com](mailto:your-email@example.com).
 
-1.  **Zero-Defect Focus:** Code must pass static analysis (Ruff) and exhibit high test coverage (Pytest).
-2.  **Modularity (Modular Monolith):** New features must be encapsulated within their own modules, adhering to clear input/output contracts. Avoid tight coupling.
-3.  **Dependency Management:** All new dependencies **MUST** be added via `uv` and must align with security best practices. Minimize third-party dependencies where native Python capabilities suffice.
-4.  **CLI Ergonomics:** Changes to the CLI interface must be backward-compatible or accompanied by clear deprecation warnings, following best practices defined by the underlying framework (e.g., Click).
+## 2. Getting Started
 
-## 2. Contribution Workflow
+### Prerequisites
 
-We follow the standard GitHub Flow, augmented by our strict CI/CD pipeline:
+*   **Python:** Version 3.10+ installed.
+*   **uv:** Installed for dependency management. If not present, run `pip install uv`.
+*   **Git:** For version control.
 
-1.  **Fork & Clone:** Fork the repository and clone your fork locally.
+### Project Setup
+
+1.  **Clone the Repository:**
     bash
-    git clone https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI.git
-    cd CourseVault-Python-Udemy-Offline-Course-Downloader-CLI
+    git clone https://github.com/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI.git
+    cd FileFlow-Automated-Asset-Synchronization-Python-CLI
     
 
-2.  **Environment Setup:** Utilize `uv` for environment isolation.
+2.  **Create a Virtual Environment (Recommended):**
     bash
-    uv venv
-    source .venv/bin/activate  # On Windows use .venv\Scripts\activate
-    uv sync  # Installs dependencies defined in pyproject.toml
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
     
 
-3.  **Branching Strategy:** Create a new feature or fix branch from `main`:
+3.  **Install Dependencies using uv:**
     bash
-    git checkout -b feat/descriptive-branch-name
+    uv pip install -r requirements.txt
+    uv pip install -r requirements-dev.txt # For development tools
     
 
-4.  **Development & Verification:** Implement your changes. Before committing, ensure all local checks pass:
-    bash
-    # Run Linter/Formatter Check (Ruff)
-    ruff check --fix .
-    ruff format .
+## 3. Development Workflow
 
-    # Run Unit/Integration Tests (Pytest)
-    pytest
+We follow a standard Gitflow-like workflow for contributions:
+
+1.  **Feature Branches:** Create a new branch for each feature or bug fix. Use a descriptive name, e.g., `feature/add-s3-support` or `fix/sync-error-handling`.
+    bash
+    git checkout -b feature/your-branch-name
     
 
-5.  **Commit Messages:** Use Conventional Commits (e.g., `feat: added new download queue management` or `fix: resolved authentication token expiry`).
+2.  **Coding Standards:**
+    *   **Language:** Python 3.10+
+    *   **Linting & Formatting:** Adhere to Ruff standards. All code will be automatically checked during CI. Ensure your code passes `ruff check .` and `ruff format .`.
+    *   **Architecture:** Follow the Modular Monolith principles. Ensure clear separation of concerns and well-defined API contracts between modules.
+    *   **Testing:** Write comprehensive unit and integration tests using Pytest. Aim for high code coverage. All tests must pass.
+    *   **Async:** Leverage Python's `asyncio` for asynchronous operations where appropriate, as per the project's nature.
 
-6.  **Pull Request (PR):** Push your branch and open a Pull Request targeting the `main` branch on `chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI`.
+3.  **Committing Changes:**
+    *   Write clear, concise commit messages. Follow conventional commit format if possible (e.g., `feat: Add S3 synchronization`, `fix: Correct handling of empty directories`).
+    *   Stage your changes:
+        bash
+        git add .
+        
+    *   Commit your changes:
+        bash
+        git commit -m "feat: Implement feature X"
+        
 
-## 3. Pull Request Requirements
+4.  **Testing and Linting:**
+    *   Run tests locally before pushing:
+        bash
+        pytest
+        
+    *   Run linters and formatters locally:
+        bash
+        ruff check .
+        ruff format .
+        
 
-Every submitted PR **MUST** satisfy these automated and manual checks:
+5.  **Submitting a Pull Request (PR):**
+    *   Ensure your branch is up-to-date with the main branch:
+        bash
+        git fetch origin
+        git rebase origin/main
+        
+    *   Push your branch to your fork:
+        bash
+        git push origin feature/your-branch-name
+        
+    *   Open a Pull Request on the `chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI` repository.
+    *   Provide a clear title and detailed description for your PR, explaining the changes and the problem they solve.
+    *   Link to any relevant issues.
 
-*   **CI Status:** Must pass all checks defined in `.github/workflows/ci.yml` (Build, Lint, Test).
-*   **Documentation:** If new functionality is added, update the relevant sections of `README.md`.
-*   **Code Quality:** Adherence to **SOLID** and **DRY** principles is mandatory. Any new logic must be accompanied by corresponding Pytest fixtures and tests.
-*   **Security Review:** Ensure no hardcoded credentials or use of deprecated libraries. Refer to the security policy in `.github/SECURITY.md`.
+## 4. Architectural Principles (Apex Standard)
 
-## 4. Reporting Issues & Security Vulnerabilities
+*   **SOLID:** Adhere to the Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles.
+*   **DRY:** Don't Repeat Yourself. Abstract common functionality.
+*   **YAGNI:** You Ain't Gonna Need It. Implement only what is currently required.
+*   **Modular Monolith:** Maintain a cohesive codebase with well-defined internal boundaries, allowing for potential future extraction into microservices if needed.
 
-### Bugs and Feature Requests
-Use the provided templates in `.github/ISSUE_TEMPLATE/` for filing:
-*   **Bug Reports:** Detail reproduction steps clearly.
-*   **Feature Requests:** Explain the use case and technical feasibility.
+## 5. AI Agent Directives
 
-### Security Vulnerabilities
-**DO NOT** report security vulnerabilities publicly via standard Issues. Follow the protocol outlined in **`.github/SECURITY.md`** for responsible disclosure.
+This project integrates with AI models for intelligent file processing. When contributing:
+
+*   Ensure all AI-related code is modular and easily testable.
+*   Handle API errors gracefully and provide informative feedback.
+*   Document any changes to AI model interactions or configurations.
+*   Refer to the `AGENTS.md` file for detailed AI interaction protocols and configurations.
+
+## 6. Reporting Issues
+
+If you find a bug or have a feature request, please open an issue on GitHub. Use the provided issue templates (`bug_report.md`) for detailed reporting.
+
+## 7. License
+
+This project is licensed under the **CC BY-NC 4.0** license. By contributing, you agree to license your contributions under this license.
+
+---
+
+*Last Updated: December 2025*
