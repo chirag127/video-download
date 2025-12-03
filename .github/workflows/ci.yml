@@ -1,49 +1,92 @@
-name: CI Pipeline
+name: CI
 
-# This pipeline is triggered on push events to the main branch and on pull requests.
-# It ensures code quality and correctness using modern Python tooling.
-
+# Trigger CI workflow on push to main branch and on pull requests targeting main branch.
+# Also trigger on tag creation.
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+    tags: [ "v*.*.*" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
+  release:
+    types: [ "published" ] # Trigger on release creation
 
 jobs:
-  build-and-test:
-    name: Build & Test
+  build_and_test:
+    name: Build & Test (Python 3.10)
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [ "3.10", "3.11", "3.12" ]
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for tags and versioning
 
-      - name: Set up Python 3.11
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'uv'
+          python-version: ${{ matrix.python-version }}
+          cache: 'uv' # Use uv for caching dependencies
 
-      - name: Install Dependencies with uv
-        run: |
-          python -m uv install --frozen-lockfile
-          # If no lockfile exists, install from pyproject.toml and create a lockfile
-          if [ ! -f requirements.txt ]; then
-            python -m uv pip install --no-deps -e . --sync --locked
-          fi
+      - name: Install uv dependency manager
+        run: | # Use a simple script to install uv if not already present, though setup-python should handle it.
+          curl -LsSf https://github.com/uv-uv/uv/releases/download/v0.2.1/uv-install.sh | sh
+          uv --version
 
-      - name: Lint and Format with Ruff
+      - name: Install dependencies with uv
         run: |
-          python -m ruff check .
-          python -m ruff format --check .
+          uv pip install --upgrade pip
+          uv pip install -r requirements.txt -r requirements-dev.txt # Assuming requirements-dev.txt exists for dev dependencies
 
-      - name: Run Tests with Pytest
+      - name: Lint with Ruff
         run: |
-          pytest --cov=src/ --cov-report=xml
+          uv pip install ruff # Ensure ruff is installed for linting
+          ruff check . --output-format=github-actions # Use GitHub Actions output format for annotations
+
+      - name: Format with Ruff
+        run: |
+          uv pip install ruff
+          ruff format . --check # Check formatting, don't auto-format in CI
+
+      - name: Test with Pytest
+        run: |
+          uv pip install pytest
+          pytest --cov=fileflow --cov-report=xml # Generate coverage report in XML format for Codecov
 
       - name: Upload Coverage Report
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }} # Ensure CODECOV_TOKEN is set in repository secrets
           fail_ci_if_error: true
+
+      - name: Build Project (Optional - if applicable, e.g., for packaging)
+        run: |
+          # This step depends on how the Python project is packaged.
+          # Example for building a wheel and sdist:
+          # uv pip install build
+          # python -m build
+          echo "Skipping build step as it might not be applicable for all CLI tools."
+
+      - name: Create Release Artifacts (on tag push)
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          echo "Creating release artifacts for tag: ${{ github.ref_name }}"
+          # Add commands here to create distributable artifacts if needed, e.g., building wheels/sdists
+          # Example:
+          # python -m build
+          # The built artifacts will be in the 'dist/' directory.
+
+      - name: Upload Release Assets (on tag push)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./dist/* # Path to the built artifacts (assuming 'dist/' directory)
+          asset_name: "${{ github.event.release.name }}-${{ matrix.python-version }}.zip" # Example asset name
+          asset_content_type: application/zip # Example content type
