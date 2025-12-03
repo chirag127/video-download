@@ -1,71 +1,43 @@
-# 🐛 Bug Report
+# Bug Report
 
-Thank you for helping us maintain the integrity and performance of **CourseVault-Python-Udemy-Offline-Course-Downloader-CLI**. Please provide detailed, actionable information below.
+**Always check the [Contributing Guidelines](https://github.com/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI/blob/main/.github/CONTRIBUTING.md) before submitting a bug report.**
 
----
+## Bug Description
 
-## 1. Summary
+Provide a clear and concise description of the bug. What happened? What was the expected behavior?
 
-**What is the behavior that is not expected?**
+## Steps to Reproduce
 
-[Describe the bug clearly and concisely here. What should have happened vs. what actually happened?]
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
----
+## Environment
 
-## 2. Steps to Reproduce
+*   **OS:** (e.g., Windows 11, macOS Sonoma, Ubuntu 22.04)
+*   **Python Version:** (e.g., Python 3.10.12)
+*   **FileFlow Version:** (If you know it, otherwise state `latest` or `main` branch)
+*   **Dependencies:** (List any relevant dependencies or their versions if they might be related)
 
-**Please provide a sequence of steps that reliably reproduces the issue.**
+## Expected Behavior
 
-1.  [e.g., Run the command: `coursevault download --course 123456`]
-2.  [e.g., Provide the URL or input parameters used]
-3.  [e.g., Observe the error or incorrect output]
+A clear description of what you expected to happen.
 
----
+## Actual Behavior
 
-## 3. Expected vs. Actual Behavior
+A clear description of what actually happened, including any error messages.
 
-**Expected Behavior:**
+## Screenshots (Optional)
 
-[What did you anticipate the tool would do based on the documentation or logical function?]
+If applicable, add screenshots to help explain your problem.
 
-**Actual Behavior:**
+## Additional Context (Optional)
 
-[What did the tool actually do? Include the exact error message or output if possible.]
-
----
-
-## 4. Environment Details
-
-To ensure alignment with the **Apex Toolchain (Python 3.10+, uv, Ruff)**, please specify your environment:
-
-*   **CourseVault Version:** (Run `coursevault --version`)
-*   **Operating System:** (e.g., Linux Kernel 6.x, Windows 11, macOS Sonoma)
-*   **Python Version:** (e.g., Python 3.11.5)
-*   **Udemy URL/Course ID Used:** (If applicable and non-sensitive)
+Add any other context about the problem here. For example, specific file types involved, remote storage configurations, or command-line arguments used.
 
 ---
 
-## 5. Technical Context (Logs/Traceback)
+----
 
-If there was a traceback or crash, please paste the **full, sanitized log output** below. Do not summarize.
-
-bash
-# Paste full traceback here
-
-
----
-
-## 6. Severity & Priority
-
-**How critical is this issue to the core functionality?**
-
-*   **[ ] Critical:** Blocks core functionality (Download/Auth).
-*   **[ ] Major:** Significant feature degradation.
-*   **[ ] Minor:** Cosmetic or minor inconvenience.
-*   **[ ] Trivial:** Typo or documentation issue.
-
----
-
-## 7. Potential Fix (Optional)
-
-If you have investigated and have a suggestion for the remediation path, please include it here. Reference architectural principles (**SOLID/DRY**) if proposing a structural change.
+**This bug report is governed by the [Apex Technical Authority Standards](https://github.com/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI/blob/main/AGENTS.md).**
