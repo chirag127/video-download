@@ -1,41 +1,38 @@
-# ByteStream OS Ignored Files & Directories
-
-# Dependency Management (uv/pip)
-__pypackages__/
-*.egg-info/
-.venv/
-/dist/
-/build/
-*.py[cod]
-*.so
-
-# Python Cache & Logs
+# Python specific files and directories
 *.pyc
 __pycache__/
-.mypy_cache/
+*.egg-info/
+.Python
+build/
+dist/
+.venv/
+
+# Dependency Management (uv/pip)
+/venv/
+/env/
+/site-packages/
+
+# Ruff / Black / Formatting Cache
 .ruff_cache/
+.formatter.lock
+
+# Pytest and Testing
 .pytest_cache/
 .coverage
+htmlcov/
 
-# IDE & Editor Artifacts
-.idea/
+# IDE and Editor specific files
 .vscode/
+.idea/
 *.swp
-*.swo
+
+# OS generated files
 .DS_Store
+Thumbs.db
 
-# Testing & Artifacts
-/htmlcov/
-.jenkins/
-
-# Secrets & Configuration (NEVER COMMIT)
-*.env
-secrets.yml
-config.local.json
-
-# Documentation & Build Artifacts
+# Documentation/Build outputs (if applicable)
 /docs/_build/
 
-# Platform Specific (MacOS/Linux/Windows)
-.Trash
-Thumbs.db
+# Secret/Environment Files (NEVER COMMIT)
+.env
+secrets.toml
