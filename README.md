@@ -1,176 +1,180 @@
-# CourseVault-Python-Udemy-Offline-Course-Downloader-CLI
+# FileFlow-Automated-Asset-Synchronization-Python-CLI
 
-![Build Status](https://img.shields.io/github/actions/workflow/user/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI/ci.yml?style=flat-square)
-![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI?style=flat-square)
-![Tech Stack](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square)
-![Linter](https://img.shields.io/badge/Ruff-Fast-orange?style=flat-square)
-![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgray?style=flat-square)
-![GitHub Stars](https://img.shields.io/github/stars/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI?style=flat-square)
+![Build Status](https://img.shields.io/github/actions/workflow/user/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI/ci.yml?style=flat-square&logo=github)
+![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square&logo=codecov)
+![Tech Stack](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)
+![Lint/Format](https://img.shields.io/badge/Ruff-compliant-orange?style=flat-square&logo=ruff)
+![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square&logo=creativecommons)
+![GitHub Stars](https://img.shields.io/github/stars/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square&logo=github)
 
-**CourseVault** is an advanced Python CLI tool designed for Udemy course enthusiasts to download lectures for offline access, fostering a robust, local learning environment.
+**Elevate your file management with FileFlow, an intelligent Python CLI designed for automated, synchronized, and categorized asset handling across diverse storage locations.**
 
-## 🚀 About The Project
+FileFlow streamlines complex file operations, ensuring your digital assets are consistently organized and accessible, whether on local drives or remote servers.
 
-In today's fast-paced digital world, reliable internet access isn't always guaranteed. **CourseVault** addresses this by providing a seamless way to download Udemy courses, allowing users to learn anytime, anywhere, without dependency on a constant internet connection. Built with modern Python practices and adhering to Udemy's terms of service, it ensures a legal and ethical approach to offline learning.
+<br>
 
-## 🏛️ Architecture Overview
+[![Star This Repo](https://img.shields.io/github/forks/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?color=brightgreen&label=Star&logo=github&logoColor=white&style=flat-square)](https://github.com/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI/fork)
 
+---
 
-.
-├── coursevault/            # Core application logic
-│   ├── __init__.py
-│   ├── cli.py              # CLI entry point
-│   ├── downloader.py       # Handles download logic
-│   ├── manager.py          # Manages courses and downloads
-│   └── utils.py            # Helper functions
-├── tests/                  # Unit and integration tests
-│   ├── __init__.py
-│   ├── test_downloader.py
-│   └── test_manager.py
-├── .github/                # CI/CD and workflow configurations
-│   └── workflows/          # GitHub Actions workflows
-│       └── ci.yml
-├── .gitignore
-├── LICENSE                 # CC BY-NC 4.0 License
-├── pyproject.toml          # Project metadata and dependencies
-├── README.md
-├── AGENTS.md               # AI Agent Directives
-├── badges.yml              # Badge configurations
-└── setup.py                # Python package setup (optional, if not using pyproject.toml exclusively)
+## Table of Contents
 
+*   [Features](#features)
+*   [Architecture](#architecture)
+*   [AI Agent Directives](#ai-agent-directives-critical)
+*   [Development Standards](#development-standards)
+*   [Installation](#installation)
+*   [Usage](#usage)
+*   [Contributing](#contributing)
+*   [License](#license)
 
-## 📋 Table of Contents
+---
 
-*   [About The Project](#-about-the-project)
-*   [Architecture Overview](#-architecture-overview)
-*   [Table of Contents](#-table-of-contents)
-*   [Features](#-features)
-*   [Getting Started](#-getting-started)
-    *   [Prerequisites](#-prerequisites)
-    *   [Installation](#-installation)
-    *   [Usage](#-usage)
-*   [Development Standards](#-development-standards)
-*   [Contributing](#-contributing)
-*   [License](#-license)
-*   [Contact](#-contact)
+## Features
 
-## ✨ Features
+*   **Automated Downloading:** Intelligent retrieval of assets from specified sources.
+*   **Smart Categorization:** Dynamic sorting and tagging of files based on content and predefined rules.
+*   **Cross-Platform Synchronization:** Seamless syncing between local storage and remote targets (e.g., S3, FTP).
+*   **Asynchronous Operations:** High-performance, non-blocking I/O for faster processing.
+*   **Configurable Rules Engine:** Define custom logic for file handling and synchronization.
+*   **Robust Error Handling:** Comprehensive logging and recovery mechanisms.
 
-*   **Udemy Course Downloading:** Securely download video lectures and course materials.
-*   **Download Management:** Pause, resume, and manage active downloads.
-*   **Organized Storage:** Automatically organize downloaded content into course folders.
-*   **CLI Interface:** Intuitive command-line interface for seamless operation.
-*   **Ethical Compliance:** Designed to respect Udemy's Terms of Service.
+---
 
-## ⚡ Getting Started
+## Architecture
 
-### Prerequisites
+FileFlow is built upon a **Modular Monolith** architecture, ensuring a cohesive yet scalable structure. This approach facilitates clear separation of concerns while enabling efficient development and deployment.
 
-*   Python 3.10 or higher. (`uv` will handle Python version management if specified.)
-*   `pip` or `uv` for package management.
-*   Udemy account credentials (for authentication where required by Udemy's platform).
-
-### Installation
-
-1.  **Clone the repository:**
-    bash
-    git clone https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI.git
-    cd CourseVault-Python-Udemy-Offline-Course-Downloader-CLI
-    
-
-2.  **Install dependencies using `uv`:**
-    bash
-    uv python install
-    
-
-3.  **Install the package (development mode recommended):**
-    bash
-    uv pip install -e .
-    
-
-### Usage
-
-Run the CLI tool:
-
-bash
-coursevault --help
+mermaid
+graph TD
+    A[CLI Interface (Click)] --> B(Core Logic Engine)
+    B --> C{File Download Module}
+    B --> D{Categorization Module}
+    B --> E{Synchronization Module}
+    C --> F(External APIs/Services)
+    D --> G(Metadata/Tagging System)
+    E --> H(Local Storage)
+    E --> I(Remote Storage Adapters)
+    J[Configuration Manager] --> B
+    J --> C
+    J --> D
+    J --> E
+    K[Logging & Error Handler] --> B
+    K --> C
+    K --> D
+    K --> E
 
 
-**Example Command:**
+---
 
-bash
-coursevault download --course-url "https://www.udemy.com/course/your-course-slug/" --output-dir "~/Downloads/UdemyCourses"
-
-
-## 🛠️ Development Standards
-
-*   **SOLID Principles:** Design adheres to Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
-*   **DRY (Don't Repeat Yourself):** Avoid redundant code through modularity and abstraction.
-*   **YAGNI (You Ain't Gonna Need It):** Implement only necessary features, keeping the codebase lean and maintainable.
-*   **Python 3.10+:** Leverage modern Python features.
-*   **`uv`:** For efficient and fast package and environment management.
-*   **`Ruff`:** For lightning-fast linting and formatting.
-*   **`Pytest`:** For comprehensive test coverage.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [CONTRIBUTING.md](https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI/blob/main/.github/CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-## 📜 License
-
-This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0) - see the [LICENSE](https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI/blob/main/LICENSE) file for details.
-
-## 🤖 AI Agent Directives
+## 🤖 AI Agent Directives (CRITICAL)
 
 <details>
-<summary>Click to expand AI Agent Directives</summary>
+<summary>View AI Agent Directives</summary>
 
-## SYSTEM: APEX TECHNICAL AUTHORITY & ELITE ARCHITECT (DECEMBER 2025 EDITION)
+This repository adheres to the **Apex Technical Authority** guidelines, ensuring it is maintained and enhanced with **Zero-Defect, High-Velocity, Future-Proof** principles. As of **December 2025**, the following directives are in effect for AI agents interacting with this codebase:
 
-### 1. IDENTITY & PRIME DIRECTIVE
-**Role:** You are a Senior Principal Software Architect and Master Technical Copywriter with **40+ years of elite industry experience**. You operate with absolute precision, enforcing FAANG-level standards and the wisdom of "Managing the Unmanageable."
-**Context:** Current Date is **December 2025**. You are building for the 2026 standard.
-**Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
-**Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
+### 1. Identity & Prime Directive
 
-### 2. INPUT PROCESSING & COGNITION
-*   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
-    *   **Context:** User inputs may contain phonetic errors (homophones, typos).
-    *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
-    *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
-*   **MANDATORY MCP INSTRUMENTATION:**
-    *   **No Guessing:** Do not hallucinate APIs.
-    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
-    *   **Validation:** Use `docfork` to verify *every* external API signature.
-    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
+*   **Role:** You are an Elite AI Architect and Senior Technical Copywriter (40+ years experience). Your mission is to enforce FAANG-level standards and the wisdom of "Managing the Unmanageable."
+*   **Context:** Current Date: **December 2025**. Build for the **2026 Standard**.
+*   **Output Standard:** **EXECUTION-ONLY**. No plans, only executed code, updated docs, and applied fixes.
+*   **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
-### 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type (`pyproject.toml` for Python) and apply the corresponding **Apex Toolchain**. This repository, `CourseVault-Python-Udemy-Offline-Course-Downloader-CLI`, is a Python-based course downloader tool.
+### 2. Input Processing & Cognition
 
-*   **PRIMARY SCENARIO: DATA / SCRIPTS / AI (Python)**
-    *   **Stack:** This project leverages **Python 3.10+**. Key tools include **uv** (for package management and dependency resolution), **Ruff** (for ultra-fast linting and formatting), and **Pytest** (for robust unit and integration testing).
-    *   **Architecture:** Adheres to a **Modular Monolith** pattern, ensuring clear separation of concerns for features like download logic, course management, and CLI interface, while maintaining a unified deployment.
-    *   **CLI Framework:** Uses `Click` or similar for a powerful and intuitive command-line interface.
+*   **Speech-to-Text Interpretation:** **STRICTLY FORBIDDEN** from executing literal typos. Infer technical intent based on project context.
+*   **Logic Anchor:** Treat `README.md` as the **Single Source of Truth (SSOT)**.
+*   **Mandatory MCP Instrumentation:** Use `linkup`/`brave` for research on **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**. Use `docfork` to verify API signatures. Engage `clear-thought-two` for complex flows.
 
-### 4. TESTING & VERIFICATION PROTOCOL
-*   **Testing Strategy:** Unit, integration, and end-to-end tests are MANDATORY. Focus on testing core download logic, error handling, and user input validation.
-*   **Tools:** Pytest for test execution and framework. Coverage reports generated by `coverage.py` and uploaded to Codecov.
-*   **CI/CD:** GitHub Actions configured via `.github/workflows/ci.yml` to run tests and linters on every push and pull request.
+### 3. Context-Aware Apex Tech Stacks (Late 2025 Standards)
 
-### 5. SECURITY & COMPLIANCE MANDATE
-*   **Dependency Scanning:** Regular scans using `uv`'s capabilities and GitHub Dependabot.
-*   **Credential Management:** **NEVER** hardcode credentials. Utilize environment variables or secure secret management solutions.
-*   **Udemy TOS:** All download operations must strictly adhere to Udemy's Terms of Service. Avoid any actions that could be construed as unauthorized access or distribution.
+*   **Project Type:** Python-based CLI tool for AI automation.
+*   **Primary Stack (Python):**
+    *   **Language:** Python 3.10+
+    *   **Package Management:** `uv` (for dependency resolution)
+    *   **Linting/Formatting:** `Ruff` (ultra-fast)
+    *   **Testing:** `Pytest` (robust unit & integration tests)
+    *   **CLI Framework:** `Click` (or similar, for intuitive interface)
+    *   **Architecture:** **Modular Monolith**
+    *   **AI Integration:** **Google Gemini API** (`gemini-3-pro` by default). Prioritize modular design, clear API contracts, and robust error handling.
 
-### 6. MAINTENANCE & EVOLUTION
-*   **Documentation:** Comprehensive `README.md` and `AGENTS.md`. Docstrings for all public functions and classes.
-*   **Code Quality:** Maintain high standards via Ruff linting and formatting.
-*   **Deprecation:** Monitor Python and dependency deprecation cycles, plan for upgrades.
+### 4. Core Operational Directives
+
+*   **Repository Naming:** Adhere to the **Apex Naming Convention**: `<Product-Name>-<Primary-Function>-<Platform>-<Type>` (e.g., `FileFlow-Automated-Asset-Synchronization-Python-CLI`).
+*   **Metadata Purity:** Ensure Name, Description, and Topics are professional, precise, and keyword-rich.
+*   **README Protocol:** Maintain a self-contained Project Operating System. Include Hero Banner, Dynamic Badges (Shields.io: `flat-square`, `chirag127`), BLUF, Architecture Diagram, ToC, AI Agent Directives, Development Standards, and Setup/Usage instructions.
+*   **Archival Protocol:** Retired products are "Retired Products." Elevate metadata even when archiving. Maintain professional dignity.
+*   **Standard 11 Compliance:** Always generate `README.md`, `PROPOSED_README.md`, `badges.yml`, `LICENSE` (`CC BY-NC`), `.gitignore`, `.github/workflows/ci.yml`, `.github/CONTRIBUTING.md`, `.github/ISSUE_TEMPLATE/bug_report.md`, `.github/PULL_REQUEST_TEMPLATE.md`, `.github/SECURITY.md`, and `AGENTS.md`.
+*   **Dynamic URLs:** All links and badges MUST use the current repository URL: `https://github.com/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI`.
 
 </details>
 
-## 📞 Contact
+---
 
-Chirag - chirag.patel.dev@gmail.com
+## Development Standards
 
-Project Link: [https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI](https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI)
+FileFlow is committed to excellence through the following principles:
+
+*   **SOLID:** Ensuring maintainable and scalable object-oriented design.
+*   **DRY (Don't Repeat Yourself):** Minimizing redundancy for improved clarity and efficiency.
+*   **YAGNI (You Ain't Gonna Need It):** Focusing on current requirements to avoid premature complexity.
+*   **Pythonic Code:** Adhering to PEP 8 and idiomatic Python practices.
+*   **Test-Driven Development (TDD):** Writing tests before implementation to ensure robustness.
+
+---
+
+## Installation
+
+1.  **Clone the Repository:**
+    bash
+    git clone https://github.com/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI.git
+    cd FileFlow-Automated-Asset-Synchronization-Python-CLI
+    
+
+2.  **Install Dependencies using uv:**
+    bash
+    uv venv  # Or create a virtual environment using your preferred tool
+    uv pip install -r requirements.txt
+    uv pip install -e . # For development installation
+    
+
+3.  **Configure Environment Variables:**
+    Set up necessary environment variables (e.g., API keys for remote storage, AI services) in a `.env` file or system environment.
+
+---
+
+## Usage
+
+FileFlow provides a powerful CLI for managing your assets. Use the `--help` flag for detailed command information.
+
+**Example Commands:**
+
+*   **Download and categorize files:**
+    bash
+    fileflow sync --source s3://my-bucket/raw --destination ./processed --category finance --rule "*.pdf"
+    
+
+*   **Synchronize local changes to remote storage:**
+    bash
+    fileflow sync --source ./local-assets --destination ftp://user:pass@remote.server.com/backups --sync-direction upload
+    
+
+*   **View configuration:**
+    bash
+    fileflow config show
+    
+
+---
+
+## Contributing
+
+Contributions are welcome! Please refer to the [.github/CONTRIBUTING.md](/.github/CONTRIBUTING.md) file for detailed guidelines on how to submit issues, feature requests, and pull requests.
+
+---
+
+## License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**.
+
+See the [LICENSE](LICENSE) file for more details.
