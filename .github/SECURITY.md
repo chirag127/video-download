@@ -2,35 +2,40 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| Latest  | :white_check_mark: |
+| Version | Supported |
+| ------- | --------- |
+| Main branch (develop) | ✅ |
+| Other branches | ❌ |
 
 ## Reporting a Vulnerability
 
-We take security seriously. If you find a vulnerability in `CourseVault-Python-Udemy-Offline-Course-Downloader-CLI`, please report it following these steps:
+We take security seriously. If you find a vulnerability in `FileFlow-Automated-Asset-Synchronization-Python-CLI`, please follow these steps to report it:
 
-1.  **DO NOT** create a public issue. Use the GitHub Security Advisory feature or email.
-2.  **Email:** Send a detailed report to <security@chirag127.com>. Please use a clear subject line like "Security Vulnerability Report - [Project Name]".
-3.  **GitHub Security Advisory:** If you have sufficient permissions or can initiate a private security advisory, please do so at <https://github.com/chirag127/CourseVault-Python-Udemy-Offline-Course-Downloader-CLI/security/advisories>.
+1.  **DO NOT** open a public issue. This could expose the vulnerability to malicious actors before it can be fixed.
+2.  Send a detailed email to `chirag.agarwal127@gmail.com` with the subject line `Security Vulnerability Report: FileFlow-Automated-Asset-Synchronization-Python-CLI`.
+3.  In your email, please include:
+    *   A clear description of the vulnerability.
+    *   The affected version(s) (e.g., specific commit hash or branch name if applicable).
+    *   Steps to reproduce the vulnerability.
+    *   Any proof-of-concept (PoC) code or detailed information that can help us understand and fix the issue.
+    *   Your contact information so we can follow up.
 
-**Please include the following in your report:**
+## Disclosure Timeline
 
-*   A clear description of the vulnerability.
-*   The affected version(s) (if known).
-*   Steps to reproduce the vulnerability.
-*   Any potential impact or mitigation strategies.
-*   Proof of Concept (PoC) code, if available and safe to share.
+We aim to address all reported security vulnerabilities as quickly as possible. Upon receiving a report, we will:
 
-We will acknowledge your report within 48 hours and will make a public announcement once the vulnerability is fixed.
+1.  Acknowledge receipt of your report within **48 hours**.
+2.  Assess the severity and impact of the vulnerability.
+3.  Work on a fix and release it in a timely manner.
+4.  Once a fix is deployed, we will work with you to coordinate a public disclosure, if appropriate.
 
-## Responsible Disclosure
+## Best Practices
 
-We are committed to a responsible disclosure process. We will not pursue legal action against researchers who discover and report security vulnerabilities in good faith, provided they adhere to this security policy.
+To help prevent security issues, we encourage users and contributors to follow these best practices:
 
-*   We request that you give us reasonable time to address the vulnerability before disclosing it publicly.
-*   Do not exploit the vulnerability beyond what is necessary to demonstrate its existence.
-*   Do not access, delete, or modify data that does not belong to you.
-*   Do not disrupt services.
+*   **Keep Dependencies Updated:** Regularly update the project's dependencies to their latest secure versions. This repository uses `uv` for dependency management.
+*   **Use Virtual Environments:** Always use Python virtual environments to isolate project dependencies.
+*   **Avoid Hardcoding Secrets:** Never hardcode sensitive information such as API keys or passwords directly into the codebase. Utilize environment variables or secure secret management solutions.
+*   **Review Code Changes:** Carefully review all incoming code changes, especially those from external contributors.
 
-Thank you for helping keep `CourseVault-Python-Udemy-Offline-Course-Downloader-CLI` secure!
+Thank you for helping keep `FileFlow-Automated-Asset-Synchronization-Python-CLI` secure!
