@@ -1,29 +1,34 @@
-# badges.yml
-# Configuration file for generating dynamic badges in README.md
-# Repository: DownloadFlow-Automated-File-Manager-Python-Lib
+# APEX Authority Badge Configuration File
+# Generated for: FileFlow-Automated-Asset-Synchronization-Python-CLI
 # Username: chirag127
+# Style: flat-square
 
 badges:
   - name: Build Status
-    url: https://img.shields.io/github/actions/workflow/status/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib/ci.yml?label=Build&style=flat-square
-    markdown: "[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib/ci.yml?label=Build&style=flat-square)](https://github.com/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib/actions/workflows/ci.yml)"
-
-  - name: Python Version
-    url: https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square
-    markdown: "[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square)](https://www.python.org/)"
-
+    url: "https://img.shields.io/github/actions/workflow/status/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI/ci.yml?style=flat-square"
+    markdown: "[![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI/ci.yml?style=flat-square)
+"
+  - name: Language
+    url: "https://img.shields.io/github/languages/top/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square&color=blue"
+    markdown: "[![Language](https://img.shields.io/github/languages/top/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square&color=blue)
+"
   - name: Code Coverage
-    url: https://img.shields.io/codecov/c/github/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib?token=ABCDEF123456&label=Coverage&style=flat-square
-    markdown: "[![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib?token=ABCDEF123456&label=Coverage&style=flat-square)](https://codecov.io/gh/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib)"
-
-  - name: Linter Status (Ruff)
-    url: https://img.shields.io/badge/Linter-Ruff%20Clean-green?style=flat-square
-    markdown: "[![Linter Status](https://img.shields.io/badge/Linter-Ruff%20Clean-green?style=flat-square)](https://github.com/astral-sh/ruff)"
-
+    url: "https://img.shields.io/codecov/c/github/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square"
+    markdown: "[![Coverage](https://img.shields.io/codecov/c/github/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square)
+"
+  - name: Python Version
+    url: "https://img.shields.io/badge/Python-3.10%2B-green?style=flat-square"
+    markdown: "[![Python Version](https://img.shields.io/badge/Python-3.10%2B-green?style=flat-square)
+"
+  - name: Linting Status (Ruff)
+    url: "https://img.shields.io/badge/Linting-Ruff%20Pass-success?style=flat-square"
+    markdown: "[![Linting Status (Ruff)](https://img.shields.io/badge/Linting-Ruff%20Pass-success?style=flat-square)
+"
   - name: License
-    url: https://img.shields.io/badge/License-CC%20BY--NC%204.0-informational?style=flat-square
-    markdown: "[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-informational?style=flat-square)](/LICENSE)"
-
+    url: "https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square"
+    markdown: "[![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square)
+"
   - name: GitHub Stars
-    url: https://img.shields.io/github/stars/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib?style=flat-square
-    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib?style=flat-square)](https://github.com/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib)"
+    url: "https://img.shields.io/github/stars/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square&color=yellow"
+    markdown: "[![GitHub Stars](https://img.shields.io/github/stars/chirag127/FileFlow-Automated-Asset-Synchronization-Python-CLI?style=flat-square&color=yellow)
+"
