@@ -1,60 +1,47 @@
 # Pull Request Template
 
-## Pull Request Checklist
+## 1. Summary
 
-This PR is intended to address the following:
+Provide a concise summary of the changes introduced in this pull request. What problem does it solve, or what feature does it add?
 
-*   [ ] **New Feature:** (Describe the new feature implemented)
-*   [ ] **Bug Fix:** (Describe the bug fixed)
-*   [ ] **Refactor/Code Improvement:** (Describe the improvement)
-*   [ ] **Documentation Update:** (Describe the documentation changes)
-*   [ ] **Testing Enhancement:** (Describe the testing changes)
+## 2. Motivation
 
-## Description
+Explain the reasoning behind this change. Link to relevant issues (e.g., `Fixes #123`, `Closes #456`) if applicable.
 
-Provide a concise summary of the changes introduced in this pull request. Explain the purpose and scope of the modifications.
+## 3. Changes Made
 
-## Related Issues
+Detail the specific modifications implemented. This could include:
 
-Closes #
+*   New features added.
+*   Bugs fixed.
+*   Code refactoring.
+*   Performance improvements.
+*   Documentation updates.
 
-## Changes Made
+## 4. How to Test
 
-*   **Technical Stack:** This PR adheres to the Python 3.10+ stack, utilizing `uv` for package management, `Ruff` for linting/formatting, and `Pytest` for testing.
-*   **Architecture:** Changes align with the Modular Monolith pattern.
-*   **AI Integration:** Modifications related to AI processing or integrations (if applicable) are detailed here.
-*   **CLI Enhancements:** Any changes to the command-line interface functionality or usability are described.
+Provide clear, step-by-step instructions on how to test the changes in this pull request. Include:
 
-## How to Test
+*   Prerequisites (if any).
+*   Commands to run.
+*   Expected outcomes.
 
-Provide clear, step-by-step instructions on how to test the changes introduced in this PR. Include any necessary setup, commands, or expected outputs.
+## 5. Screenshots/Recordings (If Applicable)
 
-## Architectural Adherence
+If the changes involve UI modifications or visual aspects, include relevant screenshots or recordings.
 
-*   **SOLID Principles:** Ensure all changes adhere to SOLID principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion).
-*   **DRY Principle:** All new code must follow the Don't Repeat Yourself principle.
-*   **YAGNI Principle:** Avoid implementing functionality that is not currently required.
+## 6. Checklist
 
-## Verification Steps
+*   [ ] My code follows the project's coding standards and architectural patterns.
+*   [ ] I have performed a self-review of my own code.
+*   [ ] I have commented my code, particularly in hard-to-understand areas.
+*   [ ] I have made corresponding changes to the documentation.
+*   [ ] My changes generate no new warnings or errors.
+*   [ ] I have added tests that prove my fix is effective or that my feature works.
+*   [ ] All new and existing unit tests pass locally with my changes.
+*   [ ] Any dependent changes have been merged and published.
+*   [ ] I have updated relevant AI Agent Directives if changes impact them.
 
-Execute the following commands to verify the integrity and functionality of the changes:
+## 7. Additional Context
 
-1.  **Setup Dependencies:**
-    bash
-    uv pip sync
-    
-2.  **Run Linters & Formatters:**
-    bash
-    ruff check .
-    ruff format .
-    
-3.  **Run Unit & Integration Tests:**
-    bash
-    pytest
-    
-4.  **Verify Build (if applicable):**
-    *(Add commands for building the project if a build step is involved, e.g., for packaging)*
-
-## Additional Notes
-
-Include any other relevant information, such as potential side effects, known issues, or deployment considerations.
+Add any other context that might be helpful for reviewers (e.g., known limitations, future work).
