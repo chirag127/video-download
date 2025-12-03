@@ -22,85 +22,65 @@
 ---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type (`pyproject.toml` for Python) and apply the corresponding **Apex Toolchain**. This repository, `DownloadFlow-Automated-File-Manager-Python-Lib`, is a Python-based automation tool.
+**Directives:** Detect the project type (`pyproject.toml` for Python) and apply the corresponding **Apex Toolchain**. This repository, `FileFlow-Automated-Asset-Synchronization-Python-CLI`, is a Python-based file synchronization tool.
 
 *   **PRIMARY SCENARIO: DATA / SCRIPTS / AUTOMATION (Python)**
     *   **Stack:** This project leverages **Python 3.10+**. Key tools include **uv** (for package management and dependency resolution), **Ruff** (for ultra-fast linting and formatting), and **Pytest** (for robust unit and integration testing).
-    *   **Architecture:** Adheres to a **Modular Monolith** pattern, ensuring clear separation of concerns for features like file downloading, organization, and CLI interface, while maintaining a unified deployment.
+    *   **Architecture:** Adheres to a **Modular Monolith** pattern, ensuring clear separation of concerns for features like file handling, synchronization logic, and CLI interface, while maintaining a unified deployment.
+    *   **Synchronization Logic:** Utilizes asynchronous I/O (`asyncio`) for efficient handling of multiple file operations and network requests. Employs strategies for delta synchronization and conflict resolution.
     *   **CLI Framework:** Uses `Click` or similar for a powerful and intuitive command-line interface.
-    *   **External Integrations:** Prioritize modular design, clear API contracts, and robust error handling for all external service interactions (e.g., cloud storage APIs, download sources).
 
-*   **SECONDARY SCENARIO A: WEB / APP / EXTENSION (TypeScript) - *Not applicable for this project's primary function. Reference only for potential future web-based extensions.***
-    *   **Stack:** TypeScript 6.x (Strict), Vite 7 (Rolldown), Tauri v2.x (Native), WXT (Extensions).
-    *   **State:** Signals (Standardized).
-
----
-
-## 4. ARCHITECTURE & DEVELOPMENT PRINCIPLES
-*   **DESIGN PATTERNS:**
-    *   **SOLID:** Enforce Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion.
-    *   **DRY:** Don't Repeat Yourself. Abstract common logic.
-    *   **YAGNI:** You Ain't Gonna Need It. Focus on current requirements.
-*   **MODULARITY:** Design components for reusability and testability.
-*   **TESTING STRATEGY:**
-    *   **Unit Tests:** Comprehensive coverage using **Pytest** for individual functions and classes.
-    *   **Integration Tests:** Verify interactions between components and external services using **Pytest**.
-    *   **End-to-End (E2E) Tests:** Simulate user interaction with the CLI using **Pytest** and appropriate mocking/simulations.
-    *   **Mocking:** Employ `unittest.mock` or `pytest-mock` for isolating test units.
-*   **LINTHNG & FORMATTING:**
-    *   **Tool:** **Ruff** (Integrated Linter and Formatter).
-    *   **Configuration:** Use `pyproject.toml` for all **Ruff** settings, ensuring consistent code style across the project.
-    *   **Pre-commit Hooks:** Implement **Ruff** via `pre-commit` for automated checks before committing.
+*   **VERIFICATION PROTOCOL:**
+    *   **Code Verification:** All code must pass **Ruff** (linting/formatting) and **Pytest** (unit/integration tests). Any new functionality requires corresponding tests.
+    *   **Dependency Management:** Strictly use **uv** for all package installations and environment management. Ensure `pyproject.toml` is kept up-to-date.
+    *   **Testing Framework:** **Pytest** is the standard. Implement fixtures for managing test resources (e.g., temporary directories, mock network services).
 
 ---
 
-## 5. DEPENDENCY MANAGEMENT & ENVIRONMENT**
-*   **PACKAGE MANAGER:** **uv** (ultra-fast, concurrent dependency management).
-*   **ENVIRONMENT:** Develop and test using **Python 3.10+**. Ensure compatibility across supported Python patch versions.
-*   **VIRTUAL ENVIRONMENTS:** Always use **uv** or standard `venv` for isolated project environments.
+## 4. GOVERNANCE & SECURITY (THE NEXUS OF TRUST)
+*   **CODE OF CONDUCT:** Adhere to the Contributor Covenant Code of Conduct.
+*   **SECURITY MANDATES:**
+    *   **Vulnerability Scanning:** Integrate **Snyk** or **Dependabot** for automated dependency vulnerability scanning.
+    *   **Secrets Management:** **ABSOLUTELY NO** hardcoded secrets. Use environment variables or dedicated secrets management solutions (e.g., HashiCorp Vault, AWS Secrets Manager).
+    *   **Data Privacy:** Implement data handling practices compliant with GDPR, CCPA, and other relevant regulations. Be explicit about data collection and usage in documentation.
+    *   **Input Validation:** Sanitize and validate ALL external inputs (CLI arguments, file paths, network data) to prevent injection attacks.
+*   **LICENSE:** All contributions are made under the **CC BY-NC 4.0 License**. Ensure license headers are present in new files.
 
 ---
 
-## 6. CODE VERIFICATION & CI/CD
-*   **BUILD & TEST:** Automate using GitHub Actions (`ci.yml`).
-    *   **Workflow:** Trigger on `push` and `pull_request` events.
-    *   **Steps:** Setup Python, Install Dependencies (uv), Lint (Ruff), Test (Pytest), Optional Build (e.g., packaging).
-*   **CODE COVERAGE:** Integrate with **Codecov** for transparent tracking.
+## 5. DEVELOPMENT WORKFLOW & AUTOMATION
+*   **CI/CD PIPELINE (`.github/workflows/ci.yml`):**
+    *   **Trigger:** Push and Pull Requests.
+    *   **Stages:** Lint & Format (Ruff), Test (Pytest), Build (if applicable), Security Scan (Snyk/Dependabot).
+    *   **Environment:** Python 3.10+ managed by `uv`.
+*   **CONTRIBUTING GUIDELINES (`.github/CONTRIBUTING.md`):**
+    *   **Process:** Fork, create a feature branch, write tests, lint, format, commit (Conventional Commits), open Pull Request.
+    *   **Review:** Expect thorough code review focusing on architecture, performance, security, and adherence to Apex standards.
+*   **ISSUE TEMPLATES (`.github/ISSUE_TEMPLATE/`):**
+    *   **Bug Report:** Requires steps to reproduce, expected vs. actual behavior, environment details, and logs.
+    *   **Feature Request:** Requires clear problem statement, proposed solution, and use case.
+*   **PULL REQUEST TEMPLATE (`.github/PULL_REQUEST_TEMPLATE.md`):**
+    *   Mandates linking to relevant issues, summary of changes, and confirmation of test/lint passes.
 
 ---
 
-## 7. SECURITY best PRACTICES
-*   **DEPENDENCY SCANNING:** Utilize tools like `dependabot` and `snyk` (or equivalent) to identify and patch vulnerable dependencies.
-*   **SECRET MANAGEMENT:** **NEVER** commit secrets directly to the repository. Use environment variables or secure secret management solutions.
-*   **INPUT VALIDATION:** Rigorously validate all user inputs and data from external sources to prevent injection attacks or unexpected behavior.
-*   **ERROR HANDLING:** Implement robust error handling to prevent information leakage.
+## 6. METADATA & DISCOVERY PROTOCOL
+*   **REPOSITORY NAMING CONVENTION:** `<Product-Name>-<Primary-Function>-<Platform>-<Type>` (e.g., `FileFlow-Automated-Asset-Synchronization-Python-CLI`).
+*   **DESCRIPTION:** Concise, keyword-rich summary of the repository's purpose and value.
+*   **TOPICS (GitHub):** Use relevant, high-volume keywords (e.g., `python`, `automation`, `cli`, `file-management`, `asynchronous`, `data-synchronization`).
+*   **README.md:** The central hub of project information, including architecture diagrams, setup instructions, usage examples, and badge integrations.
 
 ---
 
-## 8. AGENTS DOCUMENTATION PROTOCOL
-*   **DOCS AS CODE:** All agent directives and technical documentation are maintained within this `AGENTS.md` file and the project's `README.md`.
-*   **METADATA:** Repository metadata (Name, Description, Topics) MUST be precise and descriptive. Utilize the `Title-Case-With-Hyphens` naming convention.
-*   **AI AGENTS:** Interact with future AI agents by adhering strictly to the principles and directives outlined herein. Ensure AI integrations are modular, testable, and secure.
+## 7. SELF-PRESERVATION & EVOLUTION
+*   **VERSION CONTROL:** All changes are tracked via Git. Maintain a clean and descriptive commit history using Conventional Commits.
+*   **DOCUMENTATION AS CODE:** All documentation (README, AGENTS.md, CONTRIBUTING.md) is version-controlled and updated alongside code.
+*   **CONTINUOUS LEARNING:** Stay abreast of **December 2025** industry best practices, emerging security threats, and new language/framework features relevant to Python automation and CLI development.
 
 ---
 
-## 9. APEX REPOSITORY NAMING CONVENTION
-*   **Formula:** `<Product-Name>-<Primary-Function>-<Platform>-<Type>`
-*   **Format:** `Title-Case-With-Hyphens`
-*   **Example:** `DownloadFlow-Automated-File-Manager-Python-Lib`
-*   **Rules:**
-    *   3 to 10 words.
-    *   MUST include high-volume technical keywords.
-    *   NO numbers, NO emojis, NO underscores, NO generic words without qualifiers.
+## 8. APEX SUPPORT & FEEDBACK
+*   **FEEDBACK CHANNEL:** Submit feedback or report issues via GitHub Issues.
+*   **SUPPORT LEVEL:** Community-supported. Response times may vary. For critical issues, consider a dedicated support contract (if available).
 
 ---
-
-## 10. BASE URL & DYNAMIC LINKS
-All generated links and badge references MUST use the following base URL:
-`https://github.com/chirag127/DownloadFlow-Automated-File-Manager-Python-Lib`
-
----
-
-## 11. FINAL VERIFICATION PROTOCOL
-*   **SELF-AUDIT:** Before execution, confirm adherence to all Apex directives.
-*   **ZERO-DEFECT:** Aim for complete accuracy and compliance.
