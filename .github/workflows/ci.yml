@@ -30,7 +30,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: 'uv' # Use uv for caching dependencies
 
       - name: Install uv dependency manager
         run: | # Use a simple script to install uv if not already present, though setup-python should handle it.
