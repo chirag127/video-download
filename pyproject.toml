@@ -1,0 +1,6 @@
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+# For a script collection: only flag real errors, skip style warnings
+select = ["E9", "F821", "F811"]
